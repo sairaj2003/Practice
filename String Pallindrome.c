@@ -15,7 +15,7 @@ int ispallindrome(char name[])
     {
         name[i]=tolower(name[i]);         //tolower is only use for characters not for strings
     } 
-    i=0;
+    i=0;                //we reset i=0 beacuse due to for loop value of 'i' becomes n-1 
     
     while(j>=i)
     {
