@@ -1,0 +1,56 @@
+/*
+Find the first non-repeating element in a given array arr of N integers.
+Note: Array consists of only positive and negative integers and not zero.
+
+Example 1:
+
+Input : arr[] = {-1, 2, -1, 3, 2}
+Output : 3
+Explanation:
+-1 and 2 are repeating whereas 3 is 
+the only number occuring once.
+Hence, the output is 3. 
+*/
+
+#include <stdio.h>
+
+int firstNonRepeatingElm(int n, int arr[]) {
+    int flag;
+
+    for (int i = 0; i < n; i++) {
+        flag = 0;
+
+        for (int j = 0; j < n; j++) {
+            if (i != j && arr[i] == arr[j]) {
+                flag = 1;
+                break; 
+            }
+        }
+
+        if (!flag) {
+            return arr[i]; 
+        }
+    }
+
+    return -1; 
+}
+
+int main() {
+    int n;
+    printf("How many elements do you want in the array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements in the array: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int result = firstNonRepeatingElm(n, arr);
+    if (result != -1) {
+        printf("First Non-repeating Element: %d\n", result);
+    } else {
+        printf("No non-repeating elements.\n");
+    }
+
+    return 0;
+}
