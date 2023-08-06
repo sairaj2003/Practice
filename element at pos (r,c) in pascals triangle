@@ -1,0 +1,45 @@
+/*
+ PASCALS TRIANGLE : ELEMENT AT POS (r,c)
+ 
+In this case, we are given the row number r and the column number c, and we need to find out the element at position (r,c). 
+
+In this case, we are given the row number r and the column number c, and we need to find out the element at position (r,c). 
+
+
+We have an easier formula to find out the element i.e. r-1Cc-1. Let’s try to analyze the formula to find the value of the combination assuming r-1 as n and c-1 as r:
+
+nCr = n! / (r! * (n-r)!)
+*/
+
+
+#include <stdio.h>
+
+long long factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * factorial(n - 1);
+    }
+}
+
+long long pascalTriangle(int row, int col)
+{
+    return factorial(row) / (factorial(col) * factorial(row - col));
+}
+
+int main()
+{
+    int row, col;
+    printf("\nEnter row:");
+    scanf("%d", &row);
+    printf("\nEnter column:");
+    scanf("%d", &col);
+
+    long long result = pascalTriangle(row, col);
+    printf("\nNumber at %d row and %d col is: %lld", row, col, result);
+    return 0;
+}
