@@ -1,0 +1,28 @@
+//Fibonacci Series
+
+#include <stdio.h>
+
+int fibonacciSeries(int n)
+{
+    int num1=0;
+    int num2=1;
+    int nextTerm;
+    printf("%5d %5d",num1,num2);
+    
+    for(int i=2;i<n;i++)
+    {
+        nextTerm=num1+num2;
+        num1=num2;
+        num2=nextTerm;
+        printf("%5d",nextTerm);
+    }
+}
+
+int main() {
+    int n;
+    printf("\nEnter upto which you want fibonacci series:");
+    scanf("%d",&n);
+    
+    fibonacciSeries(n);
+    return 0;
+}
